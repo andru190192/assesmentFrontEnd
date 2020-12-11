@@ -1,0 +1,26 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Ricky and Morty</a>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="input-group mb-3 mt-4">
+            <input class="form-control" type="text" placeholder="Buscar" (keyup)="buscar(texto.value)" #texto>
+          </div>
+    </div>
+
+    <div class="row" *ngFor="let personaje of listaPersonajes">
+        <div class="col-md-3">
+            <app-tarjeta *ngIf="personaje.status !== 'unknown'"
+            [name]="personaje.name"
+            [status]="personaje.status"
+            [nameOrigen]="personaje.origin.name"
+            [gender]="personaje.gender"
+            [type]="personaje.type"
+            [image]="personaje.image"
+            [episode]="personaje.episode"
+            ></app-tarjeta>
+        </div>
+    </div>
+</div>
